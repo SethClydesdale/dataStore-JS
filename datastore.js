@@ -4,7 +4,7 @@
   if (typeof dataStore === 'undefined') {
     
     window.dataStore = {
-      on : window.localStorage ? true : false,
+      on : typeof window.localStorage !== 'undefined',
       
       set : function(name, value, exp) {
         if (dataStore.on) {
