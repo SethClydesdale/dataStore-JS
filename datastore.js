@@ -15,7 +15,7 @@
     
       get : function(name) {
         var o = {
-          data : null,
+          value : null,
           exp : null
         };
         
@@ -26,7 +26,7 @@
             exp = exp.length == 2 ? +exp[0] - (+new Date - +exp[1]) : 0;
           }
           
-          o.data = window.localStorage[name] || '';
+          o.value = window.localStorage[name] || '';
           o.exp = exp > 0 ? exp : 0;
         }
         
