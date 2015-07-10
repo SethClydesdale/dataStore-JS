@@ -114,3 +114,37 @@ dataStore.del('kitty'); // delete the storage item
 
 dataStore.get('kitty') // { value : '', exp : 0 }
 ```
+
+### More Examples
+
+Here's a comparison between the old way I used to use, and now with using dataStore.
+
+##### dataStore way
+
+```javascript
+var container = document.getElementById('container'),
+    data = dataStore.get('containerData');
+
+if (data.value && data.exp) container.innerHTML = data.value;
+else $.get('/home', function(d) {
+  container.innerHTML = $('#homeMessage', d)[0].innerHTML;
+  
+  dataStore.set('containerData', container.innerHTML, 1*60*60*1000);
+});
+```
+
+##### Old way
+
+```javascript
+var container = document.getElementById('container');
+
+if (typeof localStorage !== 'undefined' && localStorage.containerData && localStorage.containerDataExp > +new Date - 1*60*60*1000) container.innerHTML = localStorage.containerData;
+else $.get('/home', function(d) {
+  container.innerHTML = $('#homeMessage', d)[0].innerHTML;
+  
+  if (typeof localStorage !== 'undefined') {
+    localStorage.containerData = container.innerHTML;
+    localStorage.containerDataExp = +new Date;
+  }
+});
+```
