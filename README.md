@@ -1,5 +1,5 @@
 ## Introduction
-I myself use Web Storage quite often as I use it for caching data returned from AJAX requests. What I wrote was usually lengthy because I created two storage items; 1 for holding the data and 1 for holding the creation date. I then had to always write a lengthy condition before utilizing this storage data.
+I myself use Web Storage quite often as I need it for caching data returned from AJAX requests. What I wrote was usually lengthy because I created two storage items; 1 for holding the data and 1 for holding the creation date. I then had to always write a lengthy condition before utilizing this storage data.
 
 dataStore aims to eliminate this, as it's a simple set of methods to make creating expirable storage items super short and easy. It also performs automatic checks for Web Storage support, so there's no worries about incompatibilities here. 
 
